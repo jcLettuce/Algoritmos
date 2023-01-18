@@ -51,7 +51,7 @@ R=n-1;
 cout << "Que numero desea buscar? : ";
 cin >> T;
 
-m=0;
+m=-1;
 
     while (vector[m]!= T)
     {
@@ -76,14 +76,9 @@ m=0;
             cout<<"El numero se encuentra en la posicion: " << m;
             break;
         }
-    //Si de casualidad m=0
-      while (vector[m]=T) 
-      {
-        cout<<"El numero se encuentra en la posicion: " << m;
-      }
-       
-       
+    
     }
+
     
 
     
