@@ -8,10 +8,11 @@
 using namespace std;
 int main()
 {
-    int nc,n,p,cn,temp,c,rever,suma,l,result,numero,h;
+    int nc,n,p,temp,c,rever,suma,l,result,numero,h;
     cout << " Indique el numero de casos de prueba: ";
     cin >> nc;
-    int casosp[nc],impar[casosp[nc]],numrever[nc];
+    int casosp[nc],numrever[nc];
+
     //Indica el numero de digitos para cada caso de prueba
     for (int i=0; i<nc; i++)
     {
@@ -24,19 +25,19 @@ int main()
    //generar los numeros con la cantidad de digitos para cada caso
    cout <<"La cantidad de numeros reversible para cada caso son:"<< endl;
    for (int i=0;i<nc;i++)
-   {
+   {   
+    int imp[casosp[i]+1];
        if(casosp[i]!=0)      
        {
-         cn = pow(10,casosp[i]);
 
-         for (int j=pow(10,cn-1); j<cn;j++)
+         for (int j=pow(10,casosp[i]-1); j<pow(10,casosp[i]);j++)
             {
             
                 numero = j;
                 int k;
                 k=0;
                 c=numero;
-                while(numero>0)
+                while(c>0)
                 {
                 temp= c%10;
                 c=c/10;
@@ -45,21 +46,22 @@ int main()
                 }
                 suma= numero + rever ;
                 k=0;
-                while(suma>0)
+                while(c>0)
                 {
                 c=suma;
-                
                 temp= c%10;
                 c=c/10;
-                impar[k]=c;
+                cout<<k;
+                
+                imp[k]=c;
                 k++;
                 }
-                if (impar[0]!=0)
+                if (imp[0]!=0)
                 {
                 k=0;
                 for(int k=0; k<casosp[i];k++)
                 {
-                result=impar[k]%2;
+                result=imp[k]%2;
                 h=result + h;
                 }
                 if (h=casosp[i])
