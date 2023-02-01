@@ -8,7 +8,7 @@
 using namespace std;
 int main()
 {
-    int nc,n,p,temp,c,rever,suma,l,h,dig,b;
+    int nc,n,p,temp,c,rever,suma,l,h,dig,b,a;
     cout << " Indique el numero de casos de prueba: ";
     cin >> nc;
     int casosp[nc],result[nc];
@@ -36,8 +36,10 @@ int main()
             {
             
                 int k;
-                k=1;
                 c=j;
+                k=0;
+                while (k<casosp[i])
+                {
                 while(c>0)
                 {
                 temp= c%10;
@@ -45,13 +47,17 @@ int main()
                 rever = rever + temp*pow(10,casosp[i]-k);
                 k++;
                 }
+                }
                 suma= j + rever ;
-                k=1;
+                k=0;
                 c=suma;
+                while (k<n)
+                {
                 while(c>0)
                 {
                 c=c/10;
                 k++;
+                }
                 }
                 dig=k;
 
