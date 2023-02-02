@@ -8,92 +8,70 @@
 using namespace std;
 int main()
 {
-    int nc,n,p,temp,c,rever,suma,l,h,dig,b,a;
+    int nc,n,c,tem,rever,k,sum,a;
     cout << " Indique el numero de casos de prueba: ";
     cin >> nc;
-    int casosp[nc],result[nc];
+    int casos[nc],result[nc];
 
     //Indica el numero de digitos para cada caso de prueba
     for (int i=0; i<nc; i++)
     {
         cout << "Caso de prueba " << i << ": ";
         cin >> n;
-        casosp[i]= n;
+        casos[i]= n;
     
     }
 
    //generar los numeros con la cantidad de digitos para cada caso
    cout <<"La cantidad de numeros reversible para cada caso son:"<< endl;
-   for (int i=0;i<nc;i++)
-   {   
-    b=0;
-    
-       if(casosp[i]!=0)      
-       {
-
-
-         for (int j=pow(10,casosp[i]-1)+1;j<j<pow(10,casosp[i]) ;j++)
-            {
+for (int i=0; i<nc;i++)
+{
+    result[i]=0;
+    for (int j=j=pow(10,casos[i]-1)+1;j<pow(10,casos[i]);j++)
+    {
+        c=j;
+        rever=0;
+        k=0;
+        while (c>0)
+        {
+            k++;
+            tem=c%10;
             
-                int k;
-                c=j;
-                k=0;
-                while (k<casosp[i])
-                {
-                while(c>0)
-                {
-                temp= c%10;
-                c=c/10;
-                rever = rever + temp*pow(10,casosp[i]-k);
-                k++;
-                }
-                }
-                suma= j + rever ;
-                k=0;
-                c=suma;
-                while (k<n)
-                {
-                while(c>0)
-                {
-                c=c/10;
-                k++;
-                }
-                }
-                dig=k;
-
-                int imp[dig];
-                c=suma;
-                k=0;
-                while(c>0)
-                {
-                imp[k]=c%10;
-                c=c/10;
-                k++;
-                }
-                for(int l=0; l<dig;l++)
-                {
-                    if (imp[l]%2!=0)
-                    {
-                        if(l==dig-1)
-                        {
-                            b++;
-                        }
-
-                    }
-                    else
-                    {
-                        break;
-                    }  
-
-                }
-            
-                
-            }
-        cout << "Caso de prueba " << i << ": " << b << endl;
+            c=c/10;
+            rever=rever+(tem*pow(10,casos[i]-k));
         }
-       
-    
-      
-    }   
+        
+
+        sum=rever+j;
+        c=0;
+        c=sum;
+        tem=0;
+        a=0;
+        while (c>0)
+        {
+            tem=c%10;
+            c=c/10;
+            if (tem%2==1)
+            {
+              a++;
+            }
+            else if (tem%2==0)
+            {
+                a=-casos[i];
+            }
+                  
+        }
+        
+        if (a>=casos[i])
+        {
+            result[i]=result[i]+1;
+
+        }
+
+
+    }
    
+   cout << "Numeros reversibles del caso de prueba " << i << ": " << result[i] <<endl;
+}
+
 }
