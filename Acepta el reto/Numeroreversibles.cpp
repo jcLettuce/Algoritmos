@@ -29,6 +29,7 @@ for (int i=0; i<nc;i++)
     result[i]=0;
     for (int j=j=pow(10,casos[i]-1)+1;j<pow(10,casos[i]);j++)
     {
+
         c=j;
         rever=0;
         k=0;
@@ -36,7 +37,14 @@ for (int i=0; i<nc;i++)
         {
             k++;
             tem=c%10;
-            
+            if( tem==0)
+            {
+                if(k==1)
+                {
+                    break;
+                }
+                
+            }
             c=c/10;
             rever=rever+(tem*pow(10,casos[i]-k));
         }
@@ -57,7 +65,7 @@ for (int i=0; i<nc;i++)
             }
             else if (tem%2==0)
             {
-                a=-casos[i];
+                break;
             }
                   
         }
